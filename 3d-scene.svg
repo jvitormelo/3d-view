@@ -1,0 +1,119 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cube1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#ff5252;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="sphere1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#26a69a;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="triangle1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#45b7d1;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#2196f3;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="3" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#bg)"/>
+  
+  <!-- Floating particles -->
+  <g opacity="0.6">
+    <circle r="2" fill="white">
+      <animateMotion dur="8s" repeatCount="indefinite">
+        <mpath href="#path1"/>
+      </animateMotion>
+    </circle>
+    <circle r="1.5" fill="white">
+      <animateMotion dur="6s" repeatCount="indefinite">
+        <mpath href="#path2"/>
+      </animateMotion>
+    </circle>
+    <circle r="1" fill="white">
+      <animateMotion dur="10s" repeatCount="indefinite">
+        <mpath href="#path3"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Hidden paths for particle animation -->
+  <defs>
+    <path id="path1" d="M50,100 Q300,50 550,150 T50,300 Z"/>
+    <path id="path2" d="M100,50 Q400,200 500,350 T100,50 Z"/>
+    <path id="path3" d="M500,80 Q200,300 100,200 T500,80 Z"/>
+  </defs>
+  
+  <!-- Main 3D objects -->
+  
+  <!-- Rotating cube -->
+  <g transform-origin="150 150" filter="url(#shadow)">
+    <animateTransform attributeName="transform" type="rotate" values="0 150 150;360 150 150" dur="4s" repeatCount="indefinite"/>
+    <polygon points="130,130 170,130 170,170 130,170" fill="url(#cube1)"/>
+    <polygon points="170,130 185,115 185,155 170,170" fill="url(#cube1)" opacity="0.8"/>
+    <polygon points="130,130 145,115 185,115 170,130" fill="url(#cube1)" opacity="0.6"/>
+    
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Bouncing sphere -->
+  <g transform-origin="300 200">
+    <circle cx="300" cy="200" r="30" fill="url(#sphere1)" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <ellipse cx="300" cy="195" rx="25" ry="20" fill="url(#sphere1)" opacity="0.7">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2.5s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Spinning triangle -->
+  <g transform-origin="450 250" filter="url(#shadow)">
+    <animateTransform attributeName="transform" type="rotate" values="0 450 250;360 450 250" dur="3s" repeatCount="indefinite"/>
+    <polygon points="450,220 430,270 470,270" fill="url(#triangle1)"/>
+    <polygon points="450,220 460,210 480,260 470,270" fill="url(#triangle1)" opacity="0.8"/>
+    <polygon points="430,270 440,260 480,260 470,270" fill="url(#triangle1)" opacity="0.6"/>
+    
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,15; 0,0" dur="4s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Additional floating elements -->
+  <g opacity="0.8">
+    <rect x="80" y="300" width="20" height="20" fill="#f9ca24" rx="3" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="rotate" values="0 90 310;360 90 310" dur="5s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="3.5s" repeatCount="indefinite" additive="sum"/>
+    </rect>
+    
+    <circle cx="500" cy="100" r="15" fill="#eb4d4b" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="scale" values="1;0.8;1" dur="2.8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,12; 0,0" dur="4.2s" repeatCount="indefinite" additive="sum"/>
+    </circle>
+    
+    <polygon points="520,320 540,340 500,340" fill="#6c5ce7" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="rotate" values="0 520 333;-360 520 333" dur="6s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="2.7s" repeatCount="indefinite" additive="sum"/>
+    </polygon>
+  </g>
+  
+  <!-- Title text -->
+  <text x="300" y="50" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="bold" opacity="0.9">
+    3D Interactive Scene
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="300" y="380" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" opacity="0.7">
+    Drag to rotate • Scroll to zoom
+  </text>
+</svg>
